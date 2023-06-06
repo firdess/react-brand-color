@@ -1,0 +1,244 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  border: 0;
+  outline: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+  display: flex;
+}
+
+.sidebar {
+  width: 320px;
+  min-width: 320px;
+  border-right: 1px solid #ccc;
+  padding: 25px;
+}
+.sidebar .logo {
+  margin-bottom: 25px;
+}
+.sidebar .logo a {
+  font-size: 30px;
+}
+.sidebar .description {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #999;
+  margin-bottom: 25px;
+}
+.sidebar .menu ul li a {
+  display: block;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+}
+
+.copied {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--bgColor);
+  color: var(--textColor);
+  padding: 15px 25px;
+  border-radius: 4px;
+  font-size: 16px;
+  z-index: 10;
+}
+
+.content {
+  flex: 1;
+  overflow: auto;
+}
+.content .header {
+  height: 60px;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  background-color: #fff;
+  position: sticky;
+  top: 0;
+  align-items: center;
+  justify-content: space-between;
+}
+.content .header .search {
+  flex: 1;
+  position: relative;
+}
+.content .header .search .icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+.content .header .search .icon svg {
+  width: 20px;
+  height: 20px;
+}
+.content .header .download {
+  padding-right: 25px;
+  display: flex;
+  align-items: center;
+}
+.content .header .download .actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  gap: 15px;
+}
+.content .header .download .actions a,
+.content .header .download .actions button {
+  background-color: transparent;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.content .header .download .actions a svg,
+.content .header .download .actions button svg {
+  height: 15px;
+  width: 15px;
+}
+.content .header .download .actions select {
+  margin-right: 7px;
+  height: 30px;
+  padding: 0 15px;
+  background: #eee;
+  border-radius: 4px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  text-align: center;
+  cursor: pointer;
+}
+.content .header .download .selected {
+  font-size: 14px;
+  font-weight: 500;
+  color: #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.content .header .download .selected .close-btn {
+  background-color: transparent;
+  padding-right: 5px;
+}
+.content .header .download .selected .close-btn svg {
+  display: block;
+}
+.content .header .download .selected .close-btn svg path {
+  stroke: #999;
+}
+.content .header input {
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  padding: 0 20px 0 60px;
+}
+.content .brands {
+  padding: 25px;
+}
+.content .brands .brand {
+  border: 1px solid #ddd;
+  background-color: #fff;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+.content .brands .brand.selected {
+  border: 1px solid red;
+}
+.content .brands .brand.selected .brand-color span {
+  flex: 1;
+  text-indent: 0;
+}
+.content .brands .brand h5 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.content .brands .brand .brand-color {
+  display: flex;
+}
+.content .brands .brand .brand-color span {
+  background-color: var(--bgColor);
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-color);
+  text-indent: -9999px;
+  width: 70px;
+  cursor: pointer;
+}
+
+.about-modal {
+  max-width: 720px;
+  background: #fff;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
+  padding: 50px;
+  position: relative;
+}
+.about-modal .modal-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  background: #ddd;
+  cursor: pointer;
+}
+.about-modal .modal-close-btn svg {
+  height: 20px;
+  width: 20px;
+}
+.about-modal h3 {
+  font-size: 26px;
+  margin-bottom: 25px;
+}
+.about-modal p {
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.about-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.8);
+}/*# sourceMappingURL=styles.css.map */
